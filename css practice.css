@@ -1,0 +1,21 @@
+body{
+    color: brown;
+}
+
+h1{
+    color: chartreuse;
+}
+
+h2{
+    color: cornsilk;
+}
+
+/* Declaring ID as an attribute in html tags */
+#lib-header{
+    color : grey;
+}
+
+/* Declaring Class attribute in html tags */
+.para{
+    color: darkkhaki;
+}
