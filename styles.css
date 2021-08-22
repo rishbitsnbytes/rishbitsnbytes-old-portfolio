@@ -16,6 +16,12 @@ hr {
     margin: 2rem 0rem;
 }
 
+.blog-h1{
+    text-align: center;
+    margin: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 p{
     margin: 1rem 1rem;
     margin-bottom: 2rem;
@@ -32,6 +38,19 @@ p{
     max-width: 600px;
     margin: auto;
 }
+
+.blog-container{
+    max-width: 900px;
+    margin: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: larger;
+}
+
+.blog-container h3{
+    font-size: larger;
+    font-weight: bolder;
+}
+
 
 /* links */
 
@@ -116,7 +135,7 @@ p{
 .hero .hero-img {
     max-width: 350px;
     display: block;
-    margin: auto;
+    margin: 2rem auto 1rem;
 }
 
 .hero .hero-heading {
@@ -133,15 +152,28 @@ p{
 
 .section {  
     padding: 2rem;
+    border-radius: 2rem;
+    max-width: 500px;
+    margin: auto;
+    
 }
 
-.section h1 {
+.section h1, .section > p {
     text-align: center;
+}
+
+.section-project > h1, .section-project > p{
+    text-align: left;
+    max-width: 500px;
+    
 }
 
 .ow {
     background-color: var(--off-white);
 }
+
+
+/* footer */
 
 .footer{
 background-color: var(--primary-color);
