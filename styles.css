@@ -16,13 +16,13 @@ hr {
     margin: 2rem 0rem;
 }
 
-.blog-h1{
+.blog-h1 {
     text-align: center;
     margin: auto;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-p{
+p {
     margin: 1rem 1rem;
     margin-bottom: 2rem;
 }
@@ -39,14 +39,14 @@ p{
     margin: auto;
 }
 
-.blog-container{
+.blog-container {
     max-width: 900px;
     margin: auto;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: larger;
 }
 
-.blog-container h3{
+.blog-container h3 {
     font-size: larger;
     font-weight: bolder;
 }
@@ -54,19 +54,21 @@ p{
 
 /* links */
 
-.link-button{
+.link-button {
     margin: 1rem;
 }
 
 .link {
+    /* box-sizing: border-box; */
     text-decoration: none;
-    padding: 0.5rem 1rem; 
-} 
+    padding: 0.5rem 1rem;
+}
 
 .link-primary {
     background-color: var(--primary-color);
     color: white;
     border-radius: 0.5rem;
+    max-width: 7rem;
 }
 
 .link-secondary {
@@ -74,8 +76,10 @@ p{
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     border-radius: 0.5rem;
+    max-width: 7rem;
 }
-.link-back-button{
+
+.link-back-button {
     margin: 2rem;
 }
 
@@ -93,7 +97,7 @@ p{
     padding: 0rem 0.5rem;
 }
 
-.list-spacing{
+.list-spacing {
     padding: 1rem;
     margin-top: 2rem;
 }
@@ -150,22 +154,24 @@ p{
 
 /* sections */
 
-.section {  
+.section {
     padding: 2rem;
     border-radius: 2rem;
     max-width: 500px;
     margin: auto;
-    
+
 }
 
-.section h1, .section > p {
+.section h1,
+.section>p {
     text-align: center;
 }
 
-.section-project > h1, .section-project > p{
+.section-project>h1,
+.section-project>p {
     text-align: left;
     max-width: 500px;
-    
+
 }
 
 .ow {
@@ -175,24 +181,52 @@ p{
 
 /* footer */
 
-.footer{
-background-color: var(--primary-color);
-padding: 2rem 1rem;
-text-align: center;
-color: white;
-border-top-right-radius: 1rem;
+.footer {
+    background-color: var(--primary-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: white;
+    border-top-right-radius: 1rem;
 }
 
-.footer-header{
+.footer-header {
     font-weight: bold;
     font-size: large;
     /* padding-bottom: 1rem; */
 }
 
-.footer .link{
+.footer .link {
     color: white;
 }
 
-.footer ul{
+.footer ul {
     padding-inline-start: 0px;
+}
+
+
+@media (max-width: 900px) {
+    body {
+        max-width: 95%;
+        width: 100%;
+    }
+
+    .list-item-inline {
+        display: inline;
+        padding: 0rem;
+    }
+
+    .container-center {
+        width: auto;
+    }
+
+    .link-primary {
+        display: block;
+        margin: 1rem;
+    }
+
+    .link-secondary {
+        display: block;
+        margin: 1rem;
+
+    }
 }
