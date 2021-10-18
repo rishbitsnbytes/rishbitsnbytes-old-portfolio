@@ -42,6 +42,7 @@ p {
 .blog-container {
     max-width: 900px;
     margin: auto;
+    padding: 3rem;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: larger;
 }
@@ -206,7 +207,7 @@ p {
 
 @media (max-width: 900px) {
     body {
-        max-width: 95%;
+        max-width: 100%;
         width: 100%;
     }
 
@@ -228,5 +229,10 @@ p {
         display: block;
         margin: 1rem;
 
+    }
+
+    .blog-container {
+        margin: auto;
+        padding: 2rem;
     }
 }
