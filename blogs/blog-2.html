@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basics of API</title>
+    <title>JavaScript: Errors, Types, Properties</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -14,105 +14,198 @@
     <nav class="navigation"> <a class="link link-active link-back-button" href="/blogs.html">go back</a>
     </nav>
     <header class="hero">
-        <h1 class="blog-h1">Basics of API</h1>
+        <h1 class="blog-h1">JavaScript: Errors, Types, Properties</h1>
         <img class="hero-img" src="/images/blog2-hero.svg">
         <h1 class="hero-heading"></h1>
     </header>
 
 
     <div class="container blog-container">
-        <small>15-Aug-2021</small>
+        <small>08-July-2022</small>
         <br />
-        <small>2-min read</small>
+        <small>11-min read</small>
 
-        <h3>What an API is ?</h3>
+        <h3>Introduction</h3>
         <p>
-            First thing first, an API stands for Application Programming Interface. It’s just the way software talks to
-            each other. It’s basically a software intermediary between two different applications.
+            In this blog, I am going to talk about types of errors in Javascript. So grab a seat, have popcorns ready.
         </p>
         <p>
-            APIs are all around us, it’s integrated to almost all the modern applications now. Be it a chatting app,
-            weather checking app, food order, online shopping, cab order etc.
-        </p>
-        <p>
-            For software developers API is the most crucial to create any application. Every application has it’s core
-            purpose, to fulfil that an app might need to get various other services like maps for a cab aggregator
-            service. So, that’s where APIs comes to the rescue.
+            Javascript throws runtime errors and today we are going to see how to read, understand and use those errors in your code.
         </p>
 
-        <h3>Better understanding of APIs</h3>
+        <h3>Error:</h3>
         <p>
-            Communication is very important for any living thing and now for apps too just to make the interaction
-            easier between living things. Why? Because communication creates connectivity and connectivity creates
-            magical services or products.
+            In JS, an Error is an object. It has a Class Error, which has a constructor Error(). This is the generic error class in JS.
         </p>
         <p>
-            All applications need to gather various data from various other servers and applications just to give us the
-            end result. And APIs make that possible.
+            There are various types of errors that means there are various Classes of Errors.
         </p>
         <p>
-            For e.g. If we book an uber, the front-end of the application will give us all the information like nearby
-            available cabs, fare etc. But when we book it, it shows us map then that which is being shown or interacting
-            with us is an API. That map application and uber application are talking to each other to give us the end
-            result which is availability, ETA after booking, distance between us and driver.
-        </p>
-        <p>
-            Same with food ordering apps, ofc if there is no map to show how far our delivery boy is and what’s the ETA
-            some of us might go crazy and even break things in our room because it’s food, long wait can’t be tolerated.
-            That’s again an API.
-        </p>
-        <p>
-            One more example is suppose if we want to book a flight we might directly book it from the airlines website
-            like Vistara or in that case there won’t be so much API interaction, it’s just Vistaras own server. But if
-            we book it from a travel aggregator website like makemytrip then it has to fetch al the information from
-            various airlines database. So, every airlines application has their API which allows other to get data and
-            use it according to their policies.
+            So we can create Error objects from such constructors.
         </p>
 
-        <h3>Modern APIs</h3>
-        <p>
-            APIs have become so valuable that they are now the major source revenue for so many SAAS companies. Major
-            companies like Google, eBay, Salesforce.com, Amazon, and Expedia are just a few of the companies that make
-            money from their APIs.
-        </p>
-        <p>
-            Earlier APIs used to be described as an general connectivity interface to an application. However, Modern
-            API has some more valuable and useful characteristics like :
-        </p>
-        <p>
-            <ul>
-                <li>
-                    Modern APIs adhere to standards (typically HTTP and REST), that are developer-friendly, easily
-                    accessible and understood broadly.
-                </li>
-                <li>
-                    They are more like products than code. They are designed for consumption for specific audiences (e.g., mobile developers), they are documented, and they are versioned in a way that users can have certain expectations of its maintenance and lifecycle.
-                </li>
-                <li>
-                    Because they are much more standardized, they have a much stronger discipline for security and governance, as well as monitored and managed for performance and scale.
-                </li>
-            </ul>
-        </p>
+        <p>  The generic constructor Error takes one argument (a message that will be used to describe the error)</p>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252Fas%2520Error%2520is%2520an%2520object%2520we%2520can%2520create%2520it%2520from%2520its%2520class%27%2520constructor%250Alet%2520newError%2520%253D%2520new%2520Error%28%2522MyMessage%2520for%2520the%2520error%2522%29%253B%250A%252F%252Fnow%2520this%2520newError%2520is%2520an%2520instance%28object%29%2520of%2520class%2520Error"
+        style="width: 685px; height: 182px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+      </iframe>
+
+        <p>So yes, you are right, if it's an object and also it has a Class, it should have properties too.</p>
+        <p><strong>Standard Properties of Error Object:</strong></p>
+        <ol>
+        <li><h4 id="name">name -</h4>
+        By default, Error instances are given the name "Error". All the instances of Class Error will have a name property as "Error".</li>
+        <li><h4 id="message">message -</h4>
+        The message property is a human-readable description of the error. Contains brief information of the error.</li>
+        <li><h4 id="tostring">toString-</h4>
+        You might be thinking we have the toString method for Objects too. But the Error object overrides the Object.prototype.toString().
+        In the background, it combines the name and message and converts them into a string.</li>
+        </ol>
+        <p>These are 3 standard properties, there are other non-standard properties too but they might not be supported by some browsers.</p>
+        <p>Let's check below example</p>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=console.log%28newError%29%250AUncaught%2520Error%253A%2520MyMessage%2520for%2520the%2520error%250A%2520%2520%2520%2520at%2520%253Canonymous%253E%253A1%253A13"
+        style="width: 685px; height: 182px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <p>See the 1st word in the above error- <code>Uncaught</code>: it means your error was not handled using the catch keyword.</p>
+        <p>Next word is- <code>Error</code>: It is the value of the name property of the Error.</p>
+        <p>The next part is - <code>MyMessage for the error</code>: It is the value of the message property in the Error. </p>
+        <p>The next part is - <code>at &lt;anonymous&gt;:1:13</code>: This is the very important part, this is a stack trace, it shows where the error occurred, will talk about this in detail in later part of the blog.</p>
+        <p>So the above statement is just all the properties of Error showed together. </p>
+        <p><strong>toString():</strong></p>
+        <p>toString method when called on Error, will return a string like - name: message</p>
+        <p>If the name property value is undefined, it returns the string with name value as <code>Error</code>
+        if the message property value is undefined, it returns the string with message value as an empty string ``</p>
+        <p>We will see one example of the toString() method.</p>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=var%2520error1%2520%253D%2520new%2520Error%28%27Bad%2520operation%27%29%253B%250Aconsole.log%28error1.name%29%2520%252F%252FError%2520%250A%252F%252FAs%2520it%2520is%2520an%2520instance%2520of%2520Error%2520class%250Aconsole.log%28error1.message%29%2520%252F%252FBad%2520operation%250Aconsole.log%28error1.toString%28%29%29%253B%2520%252F%252F%2520%27Error%253A%2520Bad%2520operation%27%250A%250Avar%2520error2%2520%253D%2520new%2520Error%28%27Bad%2520operation%27%29%253B%250Aerror2.name%2520%253D%2520undefined%253B%250A%252F%252Fassigned%2520undefined%2520to%2520error2%2520name%2520property%250Aconsole.log%28error2.toString%28%29%29%253B%2520%252F%252F%2520%27Error%253A%2520Bad%2520operation%27%250A%252F%252FtoString%2520will%2520return%2520%2522Error%2522%2520for%2520undefined%2520name%250A%250Avar%2520error3%2520%253D%2520new%2520Error%28%27Bad%2520operation%27%29%253B%250Aerror3.name%2520%253D%2520%27hello%27%253B%250Aerror3.message%2520%253D%2520undefined%253B%250A%252F%252Fassigned%2520undefined%2520to%2520error3%2520message%2520property%250Aconsole.log%28error3.toString%28%29%29%253B%2520%252F%252F%2520%27hello%27%250A%252F%252FtoString%2520will%2520return%2520empty%2520string%2520for%2520undefined%2520message"
+        style="width: 685px; height: 461px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <p>Other than the generic Error constructor, there are other core error constructors in JavaScript. We will learn some of them in this blog.</p>
+        <h3 id="1-rangeerror">1. RangeError :</h3>
+        <p>The RangeError object is thrown when a value is not in the set or range of allowed values.</p>
+        <p><strong>Constructor</strong>:  RangeError()</p>
+        <p><strong>Properties</strong>:</p>
+        <ol>
+        <li>message: RangeError should provide its own message property</li>
+        <li>name: by default RangeError name property has the value "RangeError".
+        Both the properties are inherited from the Error class</li>
+        </ol>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=function%2520checkAge%28n%29%250A%257B%250A%2520%2520%2520%2520try%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520if%28%2520%21%28n%2520%253E%253D%252018%29%2520%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520throw%2520new%2520RangeError%28%2522Age%2520must%2520be%2520greater%2520than%252018%2520to%2520sign%2520up%2522%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257Dcatch%28error%29%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520console.error%28error%29%253B%250A%2520%2520%2520%2520%257D%250A%257D%250AcheckAge%2813%29%250A%252F%252F%2520RangeError%253A%2520Age%2520must%2520be%2520greater%2520than%252018%2520to%2520sign%2520up%250A%252F%252F%2520at%2520checkAge%2520%28%253Canonymous%253E%253A6%253A19%29%250A%252F%252F%2520at%2520%253Canonymous%253E%253A1%253A1%250A"
+        style="width: 685px; height: 442px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <h3 id="2-referenceerror">2. ReferenceError:</h3>
+        <p> ReferenceError object is thrown when a non-existing variable is referenced or used in your code.</p>
+        <p><strong>Constructor</strong>:  ReferenceError()</p>
+        <p><strong>Properties</strong>:</p>
+        <ol>
+        <li>message: ReferenceError should provide its own message property</li>
+        <li>name: by default ReferenceError name property has the value "ReferenceError".
+        Both the properties are inherited from the Error class</li>
+        </ol>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=let%2520name%253D%2522Rishabh%2522%250Afunction%2520printFullName%28%2520%29%2520%257B%250A%2520%2520%2520%2520try%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520console.log%28%2560%2524%257Bname%257D%2520%2524%257Bsurname%257D%2560%29%253B%250A%2520%2520%2520%2520%257D%2520catch%28%2520error%2520%29%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520console.error%28error%29%250A%2520%2520%2520%2520%257D%250A%257D%250AprintFullName%28%2520%29%253B%250A%252F%252FReferenceError%253A%2520surname%2520is%2520not%2520defined%250A%252F%252F%2520%2520at%2520printFullName%2520%28%253Canonymous%253E%253A4%253A33%29%250A%252F%252F%2520%2520at%2520%253Canonymous%253E%253A9%253A1%250A"
+        style="width: 685px; height: 368px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <h3 id="3-syntaxerror">3. SyntaxError:</h3>
+        <p>The SyntaxError object is thrown when a program contains syntactically invalid code.</p>
+        <p><strong>Constructor</strong>:  SyntaxError()</p>
+        <p><strong>Properties</strong>:</p>
+        <ol>
+        <li>message: SyntaxError should provide its own message property</li>
+        <li>name: by default SyntaxError name property has the value "SyntaxError".
+        Both the properties are inherited from the Error class</li>
+        </ol>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520printName%2520%253D%2520%28%29%257B%250A%2520%2520%2520%2520console.log%28%2522Rishabh%2522%29%253B%250A%257D%250A%252F%252FAbove%2520arrow%2520function%2520has%2520fat%2520arrow%2520missing%252C%2520it%2520will%2520throw%2520below%2520error%250A%252F%252FUncaught%2520SyntaxError%253A%2520Unexpected%2520token%2520%27%29%27%250A"
+        style="width: 685px; height: 256px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <h3 id="4-typeerror">4. TypeError:</h3>
+        <p>The TypeError object is thrown when an operation could not be performed, mostly when a value is not of the expected type.</p>
+        <p><strong>Constructor</strong>:  TypeError()</p>
+        <p><strong>Properties</strong>:</p>
+        <ol>
+        <li>message: TypeError should provide its own message property</li>
+        <li>name: by default TypeError name property has the value "TypeError".
+        Both the properties are inherited from the Error class</li>
+        </ol>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252F%2520This%2520is%25201st%2520kind%2520of%2520TypeError%252C%2520where%2520we%2520try%2520to%2520change%2520a%2520value%2520that%2520cannot%2520be%2520changed%250Aconst%2520marks%2520%253D%2520200%253B%250Aconst%2520totalMarks%2520%253D%2520250%253B%250Amarks%2520%253D%2520marks%2520*%2520100%2520%252F%2520totalMarks%253B%250A%252F%252FUncaught%2520TypeError%253A%2520Assignment%2520to%2520constant%2520variable.%250A%252F%252F%2520%2520%2520at%2520%253Canonymous%253E%253A1%253A7%250A%250A%252F%252FThis%2520is%25202nd%2520kind%2520of%2520TypeError.%2520If%2520an%2520operand%252Fargument%2520is%2520passed%2520to%2520a%2520operator%252Ffunction%2520whose%2520type%2520is%2520not%2520compatible%2520with%2520the%2520operator%252Ffunction.%250A%252F%252Fbelow%2520code%2520tries%2520to%2520apply%2520spread%2520operator%2520on%2520a%2520number%252C%2520hence%2520it%2520throws%2520an%2520TypeError%250Alet%2520number%2520%253D%25209%253B%250Alet%2520numberSpreaded%2520%253D%2520%255B...number%255D%253B%250A%252F%252F%2520Uncaught%2520TypeError%253A%2520number%2520is%2520not%2520iterable%250A%252F%252F%2520%2520%2520at%2520%253Canonymous%253E%253A1%253A26%250A%250A%250A%252F%252FThis%2520is%25203rd%2520kind%2520of%2520TypeError%252C%2520when%2520a%2520value%2520is%2520used%2520in%2520an%2520inappropriate%2520way%250A%252F%252Fbelow%2520reduce%2520method%2520can%2520be%2520called%2520on%2520array%252C%2520but%2520instead%2520we%2520are%2520calling%2520it%2520on%2520a%2520number%252C%2520it%2520will%2520throw%2520an%2520TypeError%250Alet%2520arr%253D%25209%253B%250Aarr.reduce%28%28sum%252Cnum%29%253D%253Esum%252Bnum%252C%25200%29%253B%250A%252F%252F%2520Uncaught%2520TypeError%253A%2520arr.reduce%2520is%2520not%2520a%2520function%250A%252F%252F%2520%2520%2520%2520at%2520%253Canonymous%253E%253A2%253A5%250A"
+        style="width: 685px; height: 647px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <h3 id="5-urierror">5. URIError:</h3>
+        <p>URIError is thrown when a global URI method is used in a wrong way.</p>
+        <p>e.g. The decodeURI() function takes encoded URI as an argument, it throws an URIError when the encoded URI contains invalid character sequences.</p>
+        <p><strong>Constructor</strong>:  URIError()</p>
+        <p><strong>Properties</strong>:</p>
+        <ol>
+        <li>message: URIError should provide its own message property</li>
+        <li>name: by default URIError name property has the value "URIError".
+        Both the properties are inherited from the Error class</li>
+        </ol>
+
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=try%2520%257B%250A%2520%2520let%2520a%2520%253D%2520decodeURI%28%27%2525AN%2525KI%2525%27%29%253B%250A%257D%2520catch%28e%29%2520%257B%250A%2520%2520console.error%28e%29%253B%250A%257D%250A%252F%252FURIError%253A%2520URI%2520malformed%250A%252F%252F%2520%2520%2520%2520at%2520decodeURI%2520%28%253Canonymous%253E%29%250A%252F%252F%2520%2520%2520%2520at%2520%253Canonymous%253E%253A2%253A11%250A"
+        style="width: 685px; height: 294px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+
+        <h3 id="selective-catching">Selective Catching</h3>
+        <p>Let's see an example, where we handle the error using try-catch block. What if we want to handle only the TypeError and not the syntax error. 
+        We can do that easily, as we know all the errors are instances of their class. we can check their class and find out which type of error our try block has.</p>
+        
+        <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=function%2520sumOfNumbersInArray%2520%28arrayOfNumbers%29%2520%257B%250A%2520%2520%2520%2520try%257B%250A%2520%2520%2520%2520%2520%2520%2520return%2520arrayOfNumbers.reduce%28%28sum%252C%2520num%29%253D%253Esum%252Bnum%252C%25200%29%253B%250A%2520%2520%2520%2520%257D%2520catch%28error%29%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520if%2520%28error%2520instanceof%2520TypeError%29%250A%2520%2520%2520%2520%2520%2520%2520%2520console.error%28%2522Invalid%2520type.%2520This%2520function%2520works%2520with%2520arrays%2520only%21%2522%29%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520throw%2520error%250A%2520%2520%2520%2520%257D%250A%257D%250AsumOfNumbersInArray%283%29%253B%250A%252F%252F%2520Invalid%2520type.%2520This%2520function%2520works%2520with%2520arrays%2520only%21%250A%250Afunction%2520sumOfNumbersInArray%2520%28arrayOfNumbers%29%2520%257B%250A%2520%2520%2520%2520try%257B%250A%2520%2520%2520%2520%2520%2520%2520return%2520arrayOfNumbersss.reduce%28%28sum%252C%2520num%29%253D%253Esum%252Bnum%252C%25200%29%253B%250A%2520%2520%2520%2520%257D%2520catch%28error%29%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520if%2520%28error%2520instanceof%2520TypeError%29%250A%2520%2520%2520%2520%2520%2520%2520%2520console.error%28%2522Invalid%2520type.%2520This%2520function%2520works%2520with%2520arrays%2520only%21%2522%29%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520else%250A%2520%2520%2520%2520%2520%2520%2520%2520throw%2520error%250A%2520%2520%2520%2520%257D%250A%257D%250A%252F%252FIn%2520the%2520above%2520code%2520I%2520miss-typed%2520the%2520arrayOfNumbers%2520variable%252C%2520it%2520throws%2520an%2520error%28else%2520block%29%252C%2520as%2520that%2520error%2520is%2520ReferenceError%2520and%2520is%2520not%2520an%2520instance%2520of%2520TypeError%250A%252F%252FUncaught%2520ReferenceError%253A%2520arrayOfNumbersss%2520is%2520not%2520defined%250A%252F%252F%2520%2520%2520%2520at%2520sumOfNumbersInArray%2520%28%253Canonymous%253E%253A3%253A8%29%250A%252F%252F%2520%2520%2520%2520at%2520%253Canonymous%253E%253A1%253A1%250A"
+        style="width: 685px; height: 722px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+        </iframe>
+        
+        <h3 id="stack-trace">Stack Trace</h3>
+        <p>Let's talk about stack trace now.</p>
+        <p>consider below example. It has 3 functions, function A calls B, and function B calls C.</p>
+
+        <iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=material&wt=none&l=javascript&width=685&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=26px&ph=28px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=function%2520A%2520%28%29%2520%257B%250A%2520%2520%2520%2520try%257B%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520console.log%28%2522I%2520am%2520A%252C%2520I%2520will%2520handle%2520the%2520error%252C%2520and%2520invoking%2520B%2522%29%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520B%28%29%253B%250A%2520%2520%2520%2520%257D%2520catch%28error%29%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520console.error%28error%29%253B%250A%2520%2520%2520%2520%257D%250A%257D%250Afunction%2520B%2520%28%29%2520%257B%250A%2520%2520%2520%2520console.log%28%2522I%2520am%2520B%252C%2520and%2520invoking%2520C%2522%29%253B%250A%2520%2520%2520%2520C%28%29%253B%250A%257D%250Afunction%2520C%2520%28%29%257B%250A%2520%2520%2520%2520console.log%28%2522I%2520am%2520C%2520and%2520I%2520have%2520an%2520error%2522%29%253B%250A%2520%2520%2520%2520throw%2520new%2520Error%28%2522fatal%2520error%2522%29%253B%250A%257D%250AA%28%29%253B%250A%252F%252F%2520I%2520am%2520A%252C%2520I%2520will%2520handle%2520the%2520error%252C%2520and%2520invoking%2520B%250A%252F%252F%2520I%2520am%2520B%252C%2520and%2520invoking%2520C%250A%252F%252F%2520I%2520am%2520C%2520and%2520I%2520have%2520an%2520error%250A%252F%252F%2520Error%253A%2520fatal%2520error%250A%252F%252F%2520%2520%2520%2520at%2520C%2520%28%253Canonymous%253E%253A15%253A11%29%250A%252F%252F%2520%2520%2520%2520at%2520B%2520%28%253Canonymous%253E%253A11%253A5%29%250A%252F%252F%2520%2520%2520%2520at%2520A%2520%28%253Canonymous%253E%253A4%253A9%29%250A%252F%252F%2520%2520%2520%2520at%2520%253Canonymous%253E%253A17%253A1%250A"
+  style="width: 685px; height: 629px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+        </iframe>
+
+        <p>In function A we are handling the error, but in C error is thrown, as soon as the error is thrown in C, it stops executing further and control comes to the point where it was invoked, that means in function B. Function B also stops executing and control comes to the point where it was invoked, that means in function A. Now function A sees the catch block and the error gets caught there and now program runs further without any interruption.</p>
+        <p>Now that error tells information about type of error, message of the error and stack trace. </p>
+        <p>Stack trace information is stored in the stack property and can be helpful when trying to debug a problem. it tells us the function name where the error occurred and which functions made the failing call. States what all things are there in the stack at the time when the error occurred. </p>
+        <p>So this was all about errors in javascript. Let me know in the comments if you found this blog helpful !!</p>
        
 
-        <h3>Types of API </h3>
-        <p>
-            <strong>Internal APIs</strong> are only for use within the organisation. No outside access. It’s usually for high level confidentiality or proprietary informations.
-        </p>
-        <p>
-            <strong>Partner APIs</strong> are for only few selected, segmented partner to use.
-        </p>
-        <p>
-            <strong>Public APIs</strong> are basically for everyone, anyone can use it according to the policies.
-        </p>
-    
-        <h3>Conclusion</h3>
-        <p>
-            APIs has been the most amazing development in software industry to achieve the end result. It’s not sensible for food ordering app to work on Maps and stuff, they should be able to use service from some service providers and yes APIs made that possible. It not only makes the overall system efficient but more profitable and scalable too just because you can focus on your core areas or niche instead of creating everything from scratch.
-        </p>
+
+        <p>References: </p>
+        <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" class="list-item" target="_blank">developer.mozilla.org/en-US/docs/Web/JavaSc..</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString" class="list-item" target="_blank">developer.mozilla.org/en-US/docs/Web/JavaSc..</a></li>
+        </ul>
         
     </div>
-
 
     <div style="height: 10vh"></div>
     <footer class="footer">

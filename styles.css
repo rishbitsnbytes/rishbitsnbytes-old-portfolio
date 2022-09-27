@@ -236,3 +236,10 @@ p {
         padding: 2rem;
     }
 }
+
+blockquote {
+    border-left: 2px solid black;
+    padding: 1rem 2rem;
+    font-style: italic;
+    background-color: lightgray; 
+}
