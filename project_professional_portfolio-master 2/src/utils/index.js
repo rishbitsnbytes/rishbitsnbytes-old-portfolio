@@ -1,0 +1,1 @@
+export { fetchLocal } from './fetchLocal';
